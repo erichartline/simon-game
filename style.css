@@ -1,0 +1,81 @@
+* {
+  margin: 0px;
+  text-align: center;
+  padding: 0px;
+}
+
+body {
+  background-color: #FFFABA;
+  font-family: 'Days One', sans-serif;
+  color: #1BA21B;
+  font-size: 2em;
+}
+
+h1 {
+  color: #E24848;
+  letter-spacing: 2px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0px;
+}
+
+.top {
+  float: left;
+}
+
+.bottom {
+  float: right;
+  margin-bottom: 10px;
+}
+
+.red{
+  width: 250px;
+  height: 200px;
+  background-color : #9f0f17;
+  border-radius: 0px 150px 0px 0px;
+}
+
+.green{
+  width: 250px;
+  height: 200px;
+  background-color : #00a74a;
+  border-radius: 150px 0px 0px 0px;
+}
+
+.yellow{
+  width: 250px;
+  height: 200px;
+  background-color : #cca707;
+  border-radius: 0px 0px 0px 150px;
+}
+
+.blue{
+  width: 250px;
+  height: 200px;
+  background-color : #094a8f;
+  border-radius: 0px 0px 150px 0px;
+}
+
+.yellow.light{
+  background-color : #fed93f;
+}
+
+.blue.light{
+  background-color : #1c8cff;
+}
+
+.red.light{
+  background-color : #ff4c4c;
+}
+
+.green.light{
+  background-color : #13ff7c;
+}
+
+.footer {
+  font-size: 0.8em;
+}
