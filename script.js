@@ -90,7 +90,7 @@ $(document).ready(function() {
       // change color back
       setTimeout(function() {
         $('.green').css('background-color', '#00a74a');
-      }, 500);
+      }, 400);
       // push to array
       user.push('green');
       // increase round counter
@@ -110,7 +110,7 @@ $(document).ready(function() {
       // change color back
       setTimeout(function() {
         $('.red').css('background-color', '#9f0f17');
-      }, 500);
+      }, 400);
       // push to array
       user.push('red');
       // increase round counter
@@ -130,7 +130,7 @@ $(document).ready(function() {
       // change color back
       setTimeout(function() {
         $('.yellow').css('background-color', '#cca707');
-      }, 500);
+      }, 400);
       // push to array
       user.push('yellow');
       // increase round counter
@@ -150,7 +150,7 @@ $(document).ready(function() {
       // change color back
       setTimeout(function() {
         $('.blue').css('background-color', '#094a8f');
-      }, 500);
+      }, 400);
       // push to array
       user.push('blue');
       // increase round counter
