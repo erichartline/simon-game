@@ -16,13 +16,17 @@ $(document).ready(function() {
     startGame();
   });
 
+  $('#stop').on('click', function() {
+    stopGame();
+  });
+
   function startGame() {
     // reset and re-initialize everything
     game = [];
     user = [];
     round = 0;
     active = true;
-    $('.counter').text(round);
+    $('.counter').html(round);
     newRound();
   };
 
@@ -32,7 +36,7 @@ $(document).ready(function() {
     // animate sequence
     numberToButton();
     // enable user interaction and register any clicks
-
+    checkUser();
     // if correct response and number of clicks is less than length of sequnce, wait for player input
 
     // repeat until user is wrong
@@ -41,30 +45,27 @@ $(document).ready(function() {
 
   function checkUser() {
     if (user.join('') !== game.slice(0, user.length).join('')) {
-      // $('.counter').text('game over');
+      // $('.counter').html('game over');
       console.log('game over');
     } else if (user.length === game.length) {
       round++;
-      $('.counter').text(round);
+      $('.counter').html(round);
       user = [];
       console.log('same length');
-      randomNumber();
-    }
+      setTimeout(function() {
+        newRound();
+      }, 1000);
+    } // enter conditionals for strict mode?
   };
 
   // find way to set interval
-
-  function endGame() {
-    // if player misclicks, display game over message
-    // stop game
-  };
 
   function stopGame() {
     game = [];
     user = [];
     round = 0;
     active = false;
-    $('.counter').text(0);
+    $('.counter').html(0);
   }
 
   function randomNumber() {
@@ -105,7 +106,7 @@ $(document).ready(function() {
       }, 400);
       // increase round counter
       round++;
-      $('.counter').text(round);
+      $('.counter').html(round);
       // check if user input is correct
       checkUser();
     }
@@ -123,7 +124,7 @@ $(document).ready(function() {
       }, 400);
       // increase round counter
       round++;
-      $('.counter').text(round);
+      $('.counter').html(round);
       // check if user input is correct
       checkUser();
     }
@@ -141,7 +142,7 @@ $(document).ready(function() {
       }, 400);
       // increase round counter
       round++;
-      $('.counter').text(round);
+      $('.counter').html(round);
       // check if user input is correct
       checkUser();
     }
@@ -159,7 +160,7 @@ $(document).ready(function() {
       }, 400);
       // increase round counter
       round++;
-      $('.counter').text(round);
+      $('.counter').html(round);
       // check if user input is correct
       checkUser();
     }
@@ -179,7 +180,7 @@ $(document).ready(function() {
       user.push('green');
       // increase round counter
       round++;
-      $('.counter').text(round);
+      $('.counter').html(round);
       // check if user input is correct
       checkUser();
     }
@@ -199,7 +200,7 @@ $(document).ready(function() {
       user.push('red');
       // increase round counter
       round++;
-      $('.counter').text(round);
+      $('.counter').html(round);
       // check if user input is correct
       checkUser();
     }
@@ -218,7 +219,7 @@ $(document).ready(function() {
       user.push('yellow');
       // increase round counter
       round++;
-      $('.counter').text(round);
+      $('.counter').html(round);
       // check if user input is correct
       checkUser();
     }
@@ -237,7 +238,7 @@ $(document).ready(function() {
       user.push('blue');
       // increase round counter
       round++;
-      $('.counter').text(round);
+      $('.counter').html(round);
       // check if user input is correct
       checkUser();
     }
