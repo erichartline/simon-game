@@ -4,7 +4,7 @@ $(document).ready(function() {
   var user = [];
   var round = 0;
   var random;
-  var active = true; // change to false after testing
+  var active = false;
   var sounds = {
     green: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'),
     red: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3'),
@@ -26,72 +26,72 @@ $(document).ready(function() {
     user = [];
     round = 0;
     active = true;
-    $('.counter').html(round);
+    $('.counter').html(1);
     newRound();
   };
-
-  function newRound() {
-    // add random number to sequence
-    randomNumber();
-    // animate sequence
-    numberToButton();
-    // enable user interaction and register any clicks
-    checkUser();
-    // if correct response and number of clicks is less than length of sequnce, wait for player input
-
-    // repeat until user is wrong
-
-  };
-
-  function checkUser() {
-    if (user.join('') !== game.slice(0, user.length).join('')) {
-      // $('.counter').html('game over');
-      console.log('game over');
-    } else if (user.length === game.length) {
-      round++;
-      $('.counter').html(round);
-      user = [];
-      console.log('same length');
-      setTimeout(function() {
-        newRound();
-      }, 1000);
-    } // enter conditionals for strict mode?
-  };
-
-  // find way to set interval
 
   function stopGame() {
     game = [];
     user = [];
     round = 0;
     active = false;
-    $('.counter').html(0);
-  }
-
-  function randomNumber() {
-    random = Math.floor((Math.random() * 4) + 1);
-    numberToButton();
   };
 
-  function numberToButton() {
-    if (random === 1) {
-      game.push('green');
-      green();
-    } else if (random === 2) {
-      game.push('red');
-      red();
-    } else if (random === 3) {
-      game.push('yellow');
-      yellow();
-    } else if (random === 4) {
-      game.push('blue');
-      blue();
+  function newRound() {
+    // add random number to sequence
+    randomNumber();
+    // animate sequence
+    compMoves();
+    // enable user interaction and register any clicks
+    checkUser();
+  };
+
+  function randomNumber() {
+    round++;
+    $('.counter').html(round);
+    game.push(colors[(Math.floor(Math.random() * 4))]);
+    compMoves();
+  };
+
+  function compMoves() {
+    var i = 0;
+    var moves = setInterval(function() {
+      if (game[i] === 'green') {
+        green();
+      } else if (game[i] === 'red') {
+        red();
+      } else if (game[i] === 'yellow') {
+        yellow();
+      } else if (game[i] === 'blue') {
+        blue();
+      }
+      i++;
+    }, 1000);
+    user = [];
+  }
+
+  function checkUser() {
+    if (user.join('') !== game.slice(0, user.length).join('')) {
+      $('.counter').html('--');
+      console.log('game over');
+    } else if (user.length === game.length) {
+      if (round === 20) {
+        $('.counter').html('You won!');
+      } else {
+        $('.counter').html(round);
+        user = [];
+        console.log('correct move');
+        setTimeout(function() {
+          newRound();
+        }, 1000);
+      } // enter conditionals for strict mode?
     }
   };
 
   // add strict mode option
   function changeMode() {
-
+    // if clicked, change mode to strict
+    // else play regular
   };
 
   function green() {
@@ -104,11 +104,6 @@ $(document).ready(function() {
       setTimeout(function() {
         $('.green').css('background-color', '#00a74a');
       }, 400);
-      // increase round counter
-      round++;
-      $('.counter').html(round);
-      // check if user input is correct
-      checkUser();
     }
   };
 
@@ -122,11 +117,6 @@ $(document).ready(function() {
       setTimeout(function() {
         $('.red').css('background-color', '#9f0f17');
       }, 400);
-      // increase round counter
-      round++;
-      $('.counter').html(round);
-      // check if user input is correct
-      checkUser();
     }
   };
 
@@ -140,11 +130,6 @@ $(document).ready(function() {
       setTimeout(function() {
         $('.yellow').css('background-color', '#cca707');
       }, 400);
-      // increase round counter
-      round++;
-      $('.counter').html(round);
-      // check if user input is correct
-      checkUser();
     }
   };
 
@@ -158,11 +143,6 @@ $(document).ready(function() {
       setTimeout(function() {
         $('.blue').css('background-color', '#094a8f');
       }, 400);
-      // increase round counter
-      round++;
-      $('.counter').html(round);
-      // check if user input is correct
-      checkUser();
     }
   };
 
@@ -178,9 +158,6 @@ $(document).ready(function() {
       }, 400);
       // push to array
       user.push('green');
-      // increase round counter
-      round++;
-      $('.counter').html(round);
       // check if user input is correct
       checkUser();
     }
@@ -198,9 +175,6 @@ $(document).ready(function() {
       }, 400);
       // push to array
       user.push('red');
-      // increase round counter
-      round++;
-      $('.counter').html(round);
       // check if user input is correct
       checkUser();
     }
@@ -217,9 +191,6 @@ $(document).ready(function() {
       }, 400);
       // push to array
       user.push('yellow');
-      // increase round counter
-      round++;
-      $('.counter').html(round);
       // check if user input is correct
       checkUser();
     }
@@ -236,9 +207,6 @@ $(document).ready(function() {
       }, 400);
       // push to array
       user.push('blue');
-      // increase round counter
-      round++;
-      $('.counter').html(round);
       // check if user input is correct
       checkUser();
     }
