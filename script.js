@@ -46,13 +46,18 @@ $(document).ready(function() {
     checkUser();
   };
 
+  // get random move from computer
   function randomNumber() {
+    // increase round number
     round++;
     $('.counter').html(round);
+    // push new color to array
     game.push(colors[(Math.floor(Math.random() * 4))]);
+    // play the computer's move
     compMoves();
   };
 
+  // loop through computer array and display button presses with an interval
   function compMoves() {
     var i = 0;
     var moves = setInterval(function() {
@@ -67,6 +72,7 @@ $(document).ready(function() {
       }
       i++;
     }, 1000);
+    // reset user's moves
     user = [];
   }
 

@@ -11,53 +11,54 @@ body {
   font-size: 2em;
 }
 
-h1 {
+h1, h3 {
   color: #E24848;
   letter-spacing: 2px;
+}
+
+button {
+  font-size: .9em;
+  padding: 1px;
 }
 
 .container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 0px;
+  border-radius: 100%;
+  border-color: black;
 }
 
-.top {
-  float: left;
-}
-
-.bottom {
-  float: right;
-  margin-bottom: 10px;
+.interface {
+  
 }
 
 .red{
   width: 250px;
   height: 200px;
   background-color : #9f0f17;
-  border-radius: 0px 150px 0px 0px;
+  border-top-right-radius: 100%;
 }
 
 .green{
   width: 250px;
   height: 200px;
   background-color : #00a74a;
-  border-radius: 150px 0px 0px 0px;
+  border-top-left-radius: 100%;
 }
 
 .yellow{
   width: 250px;
   height: 200px;
   background-color : #cca707;
-  border-radius: 0px 0px 0px 150px;
+  border-bottom-left-radius: 100%;
 }
 
 .blue{
   width: 250px;
   height: 200px;
   background-color : #094a8f;
-  border-radius: 0px 0px 150px 0px;
+  border-bottom-right-radius: 100%;
 }
 
 .yellow.light{
@@ -77,5 +78,5 @@ h1 {
 }
 
 .footer {
-  font-size: 0.8em;
+  font-size: 0.75em;
 }
