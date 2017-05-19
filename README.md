@@ -1,5 +1,5 @@
 # Simon Game
-Work in progress for freeCodeCamp's final front end development project.
+Web app replication of the popular 1980s Simon electronic game.
 
 Live Demo: [https://wildlifehexagon.github.io/simon-game/](https://wildlifehexagon.github.io/simon-game/)
 
