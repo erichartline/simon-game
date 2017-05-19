@@ -13,7 +13,7 @@ $(document).ready(function() {
     yellow: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3')
   };
 
-  // start game on click
+  // check mode and start game on click
   $('#new').on('click', function() {
     $(".basic").hide();
     changeMode();
@@ -71,12 +71,16 @@ $(document).ready(function() {
     user = [];
   }
 
+  // compare user's input with computer
   function checkUser() {
+    // check if user's input doesn't match
     if (user.join('') !== game.slice(0, user.length).join('')) {
       if (strict) {
+        // end game if on strict mode
         $('.basic').html('You Lost!');
         $('.basic').show();
       } else {
+        // notify user of mistake then restart round if not on strict mode
         $('.basic').html('Try Again');
         $('.basic').show();
         setTimeout(function() {
@@ -85,8 +89,10 @@ $(document).ready(function() {
       }
     } else if (user.length === game.length) {
       if (round === 20) {
+        // notify user of "victory"
         $('.basic').html('You won!');
       } else {
+        // continue onto next round
         $('.counter').html(round);
         user = [];
         console.log('correct move');
