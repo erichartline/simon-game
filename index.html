@@ -11,24 +11,26 @@
 <body>
 
   <div class="container">
-    <div class="top">
-     <div class="green"></div>
-     <div class="yellow"></div>
-    </div>
-    <div class="bottom">
-     <div class="red"></div>
-     <div class="blue"></div>
-    </div>
-    <div class="interface">
-      <h3>Simon</h3>
-      <div id="buttons">Start/Stop, Strict</div>
-      <div id="counter">--</div>
+    <div class="simon">
+      <div class="board">
+       <div class="green"></div>
+       <div class="red"></div>
+       <div class="yellow"></div>
+       <div class="blue"></div>
+
+       <div class="interface">
+         <h3>Simon</h3>
+         <div id="buttons"><button id="new">Start Game</button></div>
+         <input type="radio" name="mode" id="strict">Strict
+         <input type="radio" name="mode" id="basic">Basic
+         <h3>Counter: <span class="counter">--</span></h3>
+       </div>
+      </div>
     </div>
   </div>
 
-  <h3>Counter: <span class="counter">--</span></h3>
 
-  <button id="new">New Game</button>
+
   <button id="stop">Stop Game</button><br />
   <button id="strict">Strict Mode</button>
   <br /><br />
