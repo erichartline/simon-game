@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
-  <link href="https://fonts.googleapis.com/css?family=Days+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/daec35af1e.css">
 </head>
 <body>
@@ -21,17 +21,16 @@
         <div class="blue"></div>
 
         <div class="interface">
-          <h3>SIMON</h3>
+          <h3>Simon</h3>
 
           <div id="buttons">
             <div class="row">
               <div class="col-md-6">
                 <button id="new"></button>
-                <button id="stop"></button>
               </div>
               <div class="col-md-6">
                 <label class="switch">
-                  <input type="checkbox">
+                  <input type="checkbox" id="strict">
                   <div class="slider round"></div>
                 </label>
               </div>
@@ -45,11 +44,13 @@
                 Strict
               </div>
             </div>
+            
           </div>
 
           <strong>Round: <br />
             <span class="counter"><h3>--</h3></span>
-          </strong>
+          </strong><br />
+          <div class="basic"></div>
         </div>
 
       </div>
@@ -57,7 +58,7 @@
     </div>
 
   </div>
-  
+
   <br />
 
   <footer class="text-center footer">

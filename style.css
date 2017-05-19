@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'Days One', sans-serif;
+  font-family: 'Alfa Slab One', cursive;
   font-size: 1.5em;
 }
 
@@ -50,10 +50,6 @@ h1, h3 {
   left: 20%;
   right: 20%;
   top: 20%;
-}
-
-#stop {
-  display: none;
 }
 
 /* add boxshadow */
@@ -122,6 +118,7 @@ input:checked + .slider:before {
   height: 50%;
   background-color : #00a74a;
   border-top-left-radius: 100%;
+  border: 5px solid black;
 }
 
 .red{
@@ -130,6 +127,7 @@ input:checked + .slider:before {
   height: 50%;
   background-color : #9f0f17;
   border-top-right-radius: 100%;
+  border: 5px solid black;
 }
 
 .yellow{
@@ -138,6 +136,7 @@ input:checked + .slider:before {
   height: 50%;
   background-color : #cca707;
   border-bottom-left-radius: 100%;
+  border: 5px solid black;
 }
 
 .blue{
@@ -146,6 +145,7 @@ input:checked + .slider:before {
   height: 50%;
   background-color : #094a8f;
   border-bottom-right-radius: 100%;
+  border: 5px solid black;
 }
 
 .yellow.light{
@@ -165,7 +165,7 @@ input:checked + .slider:before {
 }
 
 .counter {
-  font-size: 3em;
+  font-size: 2em;
 }
 
 .footer {

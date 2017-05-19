@@ -1,10 +1,11 @@
 $(document).ready(function() {
+  // initialize necessary variables
   var colors = ['green', 'red', 'yellow', 'blue'];
   var game = [];
   var user = [];
   var round = 0;
   var random;
-  var active = false;
+  var strict = false;
   var sounds = {
     green: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'),
     red: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3'),
@@ -12,12 +13,11 @@ $(document).ready(function() {
     yellow: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3')
   };
 
+  // start game on click
   $('#new').on('click', function() {
+    $(".basic").hide();
+    changeMode();
     startGame();
-  });
-
-  $('#stop').on('click', function() {
-    stopGame();
   });
 
   function startGame() {
@@ -28,13 +28,6 @@ $(document).ready(function() {
     active = true;
     $('.counter').html(1);
     newRound();
-  };
-
-  function stopGame() {
-    game = [];
-    user = [];
-    round = 0;
-    active = false;
   };
 
   function newRound() {
@@ -59,8 +52,10 @@ $(document).ready(function() {
 
   // loop through computer array and display button presses with an interval
   function compMoves() {
+    $(".basic").hide();
     var i = 0;
     var moves = setInterval(function() {
+      console.log(game[i]);
       if (game[i] === 'green') {
         green();
       } else if (game[i] === 'red') {
@@ -78,11 +73,19 @@ $(document).ready(function() {
 
   function checkUser() {
     if (user.join('') !== game.slice(0, user.length).join('')) {
-      $('.counter').html('--');
-      console.log('game over');
+      if (strict) {
+        $('.basic').html('You Lost!');
+        $('.basic').show();
+      } else {
+        $('.basic').html('Try Again');
+        $('.basic').show();
+        setTimeout(function() {
+          compMoves();
+        }, 1500);
+      }
     } else if (user.length === game.length) {
       if (round === 20) {
-        $('.counter').html('You won!');
+        $('.basic').html('You won!');
       } else {
         $('.counter').html(round);
         user = [];
@@ -90,18 +93,21 @@ $(document).ready(function() {
         setTimeout(function() {
           newRound();
         }, 1000);
-      } // enter conditionals for strict mode?
+      }
     }
   };
 
-  // add strict mode option
+  // determine if mode is strict
   function changeMode() {
     // if clicked, change mode to strict
-    // else play regular
+    if ($('#strict').is(':checked')) {
+      strict = true;
+    } else {
+      strict = false;
+    }
   };
 
   function green() {
-    if (active) {
       // temporarily change color
       $('.green').css('background-color', 'green');
       // play audio
@@ -110,11 +116,9 @@ $(document).ready(function() {
       setTimeout(function() {
         $('.green').css('background-color', '#00a74a');
       }, 400);
-    }
   };
 
   function red() {
-    if (active) {
       // temporarily change color
       $('.red').css('background-color', 'red');
       // play audio
@@ -123,11 +127,9 @@ $(document).ready(function() {
       setTimeout(function() {
         $('.red').css('background-color', '#9f0f17');
       }, 400);
-    }
   };
 
   function yellow() {
-    if (active) {
       // temporarily change color
       $('.yellow').css('background-color', 'yellow');
       // play audio
@@ -136,11 +138,9 @@ $(document).ready(function() {
       setTimeout(function() {
         $('.yellow').css('background-color', '#cca707');
       }, 400);
-    }
   };
 
   function blue() {
-    if (active) {
       // temporarily change color
       $('.blue').css('background-color', 'blue');
       // play audio
@@ -149,11 +149,9 @@ $(document).ready(function() {
       setTimeout(function() {
         $('.blue').css('background-color', '#094a8f');
       }, 400);
-    }
   };
 
   $('.green').click(function() {
-    if (active) {
       // temporarily change color
       $('.green').css('background-color', 'green');
       // play audio
@@ -166,11 +164,9 @@ $(document).ready(function() {
       user.push('green');
       // check if user input is correct
       checkUser();
-    }
   });
 
   $('.red').click(function() {
-    if (active) {
       // temporarily change color
       $('.red').css('background-color', 'red');
       // play audio
@@ -183,10 +179,8 @@ $(document).ready(function() {
       user.push('red');
       // check if user input is correct
       checkUser();
-    }
   });
   $('.yellow').click(function() {
-    if (active) {
       // temporarily change color
       $('.yellow').css('background-color', 'yellow');
       // play audio
@@ -199,10 +193,8 @@ $(document).ready(function() {
       user.push('yellow');
       // check if user input is correct
       checkUser();
-    }
   });
   $('.blue').click(function() {
-    if (active) {
       // temporarily change color
       $('.blue').css('background-color', 'blue');
       // play audio
@@ -215,6 +207,5 @@ $(document).ready(function() {
       user.push('blue');
       // check if user input is correct
       checkUser();
-    }
   });
 });
