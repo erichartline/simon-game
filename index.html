@@ -11,28 +11,42 @@
 <body>
 
   <div class="container">
-    <div class="simon">
-      <div class="board">
-       <div class="green"></div>
-       <div class="red"></div>
-       <div class="yellow"></div>
-       <div class="blue"></div>
 
-       <div class="interface">
-         <h3>Simon</h3>
-         <div id="buttons"><button id="new">Start Game</button></div>
-         <input type="radio" name="mode" id="strict">Strict
-         <input type="radio" name="mode" id="basic">Basic
-         <h3>Counter: <span class="counter">--</span></h3>
-       </div>
+    <div class="simon">
+
+      <div class="board">
+        <div class="green"></div>
+        <div class="red"></div>
+        <div class="yellow"></div>
+        <div class="blue"></div>
+
+        <div class="interface">
+          <h3>Simon</h3>
+          <div id="buttons">
+            <button id="new"></button>
+            <button id="stop"></button>
+            <label class="switch">
+              <input type="checkbox">
+              <div class="slider round"></div>
+            </label>
+          </div>
+
+          Start Strict<br /><br />
+
+          <strong>Round: <br />
+            <span class="counter"><h3>--</h3></span>
+          </strong>
+        </div>
+
       </div>
+
     </div>
+
   </div>
 
 
 
-  <button id="stop">Stop Game</button><br />
-  <button id="strict">Strict Mode</button>
+
   <br /><br />
 
   <footer class="text-center footer">
